@@ -1,0 +1,30 @@
+﻿@model TH5.Models.NV_BT
+
+@{
+    ViewData["Title"] = "Edit";
+    var nv = ViewData["NV_BT"] as NV_BT;
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("Edit", "NhanVien", new { style = "border:1px solid red; " }))
+{
+    <div style="display: none">
+        <label for="maNhanVien">mã nhân viên: </label>
+        <input type="text" id="maNhanVien" name="maNhanVien" value="@nv.MaNhanVien" />
+    </div>
+    <br>
+    <label for="maThietBi">mã thiết bị: </label>
+    <input type="text" id="maThietBi" name="maThietBi" value="@nv.MaThietBi" disabled="disabled" />
+    <br>
+    <label for="maCanHo">mã căn hộ: </label>
+    <input type="text" id="maCanHo" name="maCH" value="@nv.MaCanHo" disabled="disabled" />
+    <br>
+    <label for="lanThu">lần thứ: </label>
+    <input type="text" id="lanThu" name="lanThu" value="@nv.LanThu" disabled="disabled" />
+    <br>
+    <label for="ngayBaoTri">Ngày bảo trì: </label>
+    <input type="text" id="ngayBaoTri" name="ngayBaoTri" value="@nv.NgayBaoTri" />
+    <br>
+    <input type="submit" value="Cập nhật">
+}

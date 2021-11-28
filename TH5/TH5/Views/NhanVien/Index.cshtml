@@ -1,0 +1,20 @@
+﻿@model IEnumerable<TH5.Models.NhanVienModel>
+    @{
+    ViewData["NhanVien"] = "Index";
+    Layout = "/Views/Shared/_Layout.cshtml";
+    }
+
+    @* form ten nhan vien *@
+
+    <form action="/NhanVien/ListTB">
+        <label for="tenNhanVien">Tên nhân viên: </label>
+        <select name="id" id="id">
+            @foreach (var item in Model)
+            {
+            <option value="@item.MaNhanVien">@item.TenNhanVien</option>
+
+            }
+        </select>
+        <br><br>
+        <input type="submit" value="liệt kê">
+    </form>

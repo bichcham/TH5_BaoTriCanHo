@@ -1,0 +1,53 @@
+﻿@model IEnumerable<TH5.Models.NV_BT>
+    @{
+    ViewData["NV_TB"] = "ListTB";
+    Layout = "/Views/Shared/_Layout.cshtml";
+    }
+
+    @* danh sach *@
+
+    <table class="table">
+        <thead>
+            <tr style="text-align: center;">
+                <th>
+                    Mã thiết bị
+                </th>
+                <th>
+                    Mã căn hộ
+                </th>
+                <th>
+                    Lần thứ
+                </th>
+                <th>
+                    Ngày bảo trì
+                </th>
+                <th>
+                    Chức năng
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @item.MaThietBi
+                </td>
+                <td>
+                    @item.MaCanHo
+                </td>
+                <td>
+                    @item.LanThu
+                </td>
+                <td>
+                    @item.NgayBaoTri
+                </td>
+                <td>
+                    <a href="/NhanVien/Edit?id=@item.MaNhanVien&id1=@item.MaThietBi&id2=@item.MaCanHo&id3=@item.LanThu">View</a> |
+                    <a href="/NhanVien/Delete?id=@item.MaNhanVien&id1=@item.MaThietBi&id2=@item.MaCanHo&id3=@item.LanThu">Delete</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>

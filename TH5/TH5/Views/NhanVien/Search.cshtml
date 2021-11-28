@@ -1,0 +1,53 @@
+﻿@model IEnumerable<TH5.Models.NhanVienModel>
+
+    @{
+    ViewData["NhanVien"] = "Search";
+    Layout = "/Views/Shared/_Layout.cshtml";
+    }
+
+    @* form tìm kiếm *@
+
+    <form action="/NhanVien/Search" method="post">
+
+        <p>
+            <label> Số lần sửa </label>
+            <input type="text" name="id" /> </br>
+            <input type="submit" value="Liệt kê" />
+        </p>
+
+    </form>
+
+    @*-- Bảng nhân viên*@
+
+    <table class="table">
+        <thead>
+            <tr style="text-align: center;">
+                <th>
+                    Mã nhân viên
+                </th>
+                <th>
+                    Tên nhân viên
+                </th>
+                <th>
+                    Số lần
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @item.MaNhanVien
+                </td>
+                <td>
+                    @item.TenNhanVien
+                </td>
+                <td>
+                    @item.SoLan
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
